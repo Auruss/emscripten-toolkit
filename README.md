@@ -13,7 +13,7 @@ emtk --run develop
 ```
 
 ### Beginner documentation
-All configurations explained: https://github.com/Auruss/emscripten-toolkit
+All configurations explained: https://github.com/Auruss/emscripten-toolkit/wiki/Configuration-(toolkit.json)
 
 HowTo use Modules: https://github.com/Auruss/emscripten-toolkit
 
