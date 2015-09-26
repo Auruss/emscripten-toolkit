@@ -1,0 +1,10 @@
+#ifndef _EMSCRIPTEN_TOOLKIT_MAIN_H_
+#define _EMSCRIPTEN_TOOLKIT_MAIN_H_
+
+#include <{{ toolkit_include }}>
+
+{% for define in headerDefines %}
+#define define.key define.value
+{% endfor %}
+
+#endif // _EMSCRIPTEN_TOOLKIT_MAIN_H_

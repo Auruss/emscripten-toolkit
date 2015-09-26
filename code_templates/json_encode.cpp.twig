@@ -1,0 +1,39 @@
+#include <EmscriptenToolkit.h>
+#include <sstream>
+
+EmscriptenToolkit::Reflection::encodeJSON<{{reflectionType}}>({{ reflectionType }}* object) {
+	std::stringstream output;
+	output << "{";
+
+	{# Represents how the data will be build #}
+	{% macro buildData(member) %}
+
+		{% if member.type == 'string' %}
+		output << "\"" << object->{{ member.name }} << "\"";
+		{% endif %}
+
+		{% if member.type == 'number' %}
+		output << object->{{ member.name }};
+		{% endif %}
+
+	{% endmacro %}
+
+	{# Represents how the key will be build #}
+	{% macro buildMember(member) %}
+
+		output << "\"{{ member }}\":";
+
+		{{ _self.buildData(member) }}
+
+		{% if member.last %}
+		output << ",";
+		{% endif %}
+
+	{% endmacro %}
+
+	{% for members as member %}
+		{{ _self.buildMember(member) }}
+	{% endfor %}
+
+	output << "}";
+}

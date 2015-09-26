@@ -1,0 +1,29 @@
+{
+  "targetName": "Sample",
+
+  "options": {
+    "fastJsonReflection": true
+  },
+
+  "folders": {
+    "sources": "src/",
+    "jsLibrary": "js/",
+    "binary": "bin/",
+    "temp": "temp/",
+    "autoHeader": "auto/include/"
+  },
+
+  "builds": {
+    "develop": {
+      "defines": {
+        "DEVELOP": ""
+      },
+      "target": {
+        "type": "simulation",
+        "headless": true,
+        "inspector": true,
+        "page": "develop/index.html"
+      }
+    }
+  }
+}
